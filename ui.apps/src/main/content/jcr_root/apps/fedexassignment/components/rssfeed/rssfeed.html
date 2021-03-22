@@ -1,0 +1,19 @@
+<!--/*
+    Feed Component Logic to render feeds from Sightly
+*/-->
+
+   <sly data-sly-use.rss="com.fedexassignment.core.models.RSSFeedModel">
+            <sly data-sly-test="${!rss.noOfFeeds}">
+                Please configure Feed Component here
+            </sly>
+           <sly data-sly-test="${rss.feedList.size == 0 }">
+               No. of available feeds count is Zero. Please verify.
+           </sly>
+
+           <sly data-sly-list.fdList="${rss.feedList}">
+
+               <h3>${fdList.title}</h3>
+                   ${fdList.description} <br>
+               <b>${fdList.pubDate}</b> <br>
+           </sly>
+   </sly>
